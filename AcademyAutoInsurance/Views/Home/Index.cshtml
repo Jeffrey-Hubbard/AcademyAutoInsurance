@@ -1,0 +1,94 @@
+﻿
+<div class="jumbotron">
+    <h1>Academy Auto Insurance</h1>
+    <p class="lead">The web's top source for easy auto insurance quotes.</p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="container-fluid">
+    <div class="row no-gutters m-3">
+        <div class="card col-sm-12 col-md-12, col-lg-12 mx-auto shadow">
+            <div class="card-header text-center">
+                <h2 class="m-0 text-center">Get a quote in moments!</h2>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Quote", "Home", FormMethod.Post))
+                 {
+                    <input type="hidden" name="QueryTypeID" value="1" />
+                    <div class="row no-gutters">
+                        <div class="form-group col-md-3">
+                            <input name="FirstName" type="text" class="form-control" placeholder="First Name" required/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input name="LastName" type="text" class="form-control" placeholder="Last Name" required/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input name="EmailAddress" type="email" class="form-control" placeholder="Email Address" required/>
+                        </div>
+
+                    </div>
+
+                    <div class="row no-gutters">
+                        <div class="form-group col-md-3">
+                            <span>
+                                <label>
+                                    Date of Birth:
+                                </label>
+                                <input name="DateOfBirth" type="date" class="form-control" placeholder="Date of Birth" required/>
+                            </span>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio1" name="DUI" value="true" class="custom-control-input" required/>
+                                <label class="custom-control-label" for="customRadio1">I have had at least one DUI.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio2" name="DUI" value="false" class="custom-control-input" required/>
+                                <label class="custom-control-label" for="customRadio2">I have never had a DUI.</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio3" name="FullCoverage" value="true" class="custom-control-input" required/>
+                                <label class="custom-control-label" for="customRadio1">I want Full Coverage.</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio4" name="FullCoverage" value="false" class="custom-control-input" required/>
+                                <label class="custom-control-label" for="customRadio2">I only want Liability Coverage.</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row no-gutters">
+                        <div class="form-group col-md-3">
+                            <input name="CarYear" type="text" class="form-control" placeholder="Car Year" required/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input name="CarMake" type="text" class="form-control" placeholder="Car Make" required/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input name="CarModel" type="text" class="form-control" placeholder="Car Model" required/>
+                        </div>
+                    </div>
+
+
+                    <div class="row no-gutters">
+
+                        <div class="form-group col-md-9 mw-auto">
+                            <input name="SpeedingTickets" type="text" class="form-control" placeholder="How many Speeding Tickets do you have?" required/>
+                        </div>
+                    </div>
+
+
+                    <div class="row no-gutters">
+                        <div class="form-group col-md-9">
+                            <button type="submit" class="btn btn-block btn-primary">Get My Quote!</button>
+                        </div>
+                    </div>
+
+                 }
+            </div>
+        </div>
+    </div>
+</div>

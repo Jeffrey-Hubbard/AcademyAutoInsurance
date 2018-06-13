@@ -1,0 +1,43 @@
+﻿@using AcademyAutoInsurance.ViewModels
+@model List<QuoteVm>
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Academy Auto Insurance</h1>
+    <p class="lead">Administration Page</p>
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="container-fluid">
+    <div class="row no-gutters m-3">
+        <div class="card bg-primary text-white col-md-10 col-lg-6 mx-auto shadow">
+            <div class="card-header text-left">
+                <h5 class="m-0">Quotes Provided</h5>
+            </div>
+            <div class="card-body">
+                @foreach (var quote in Model)
+                {
+                    <input type="hidden" name="Id" value="@quote.Id" />
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            @quote.firstName
+                        </div>
+                        <div class="col-md-2">
+                            @quote.lastName
+                        </div>
+                        <div class="col-md-6">
+                            @quote.emailAddress
+                        </div>
+                        <div class="col-md-2">
+                            $@quote.quotedCost
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

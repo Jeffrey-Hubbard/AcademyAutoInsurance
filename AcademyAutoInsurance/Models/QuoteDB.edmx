@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuoteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Costs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="BaseCost" Type="money" />
+          <Property Name="Under25YO" Type="money" />
+          <Property Name="Under18YO" Type="money" />
+          <Property Name="Over100YO" Type="money" />
+          <Property Name="OldCarYear" Type="int" />
+          <Property Name="OldCarCost" Type="money" />
+          <Property Name="NewCarYear" Type="int" />
+          <Property Name="NewCarCost" Type="money" />
+          <Property Name="PerSpeedingTicketCost" Type="money" />
+          <Property Name="DUIPercent" Type="money" />
+          <Property Name="FullCoveragePercent" Type="int" />
+        </EntityType>
+        <EntityType Name="MakeCosts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="MakeCost" Type="money" />
+        </EntityType>
+        <EntityType Name="ModelCosts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="ModelCost" Type="money" />
+        </EntityType>
+        <EntityType Name="Quotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="CarYear" Type="int" />
+          <Property Name="CarMake" Type="varchar" MaxLength="50" />
+          <Property Name="CarModel" Type="varchar" MaxLength="50" />
+          <Property Name="SpeedingTickets" Type="int" />
+          <Property Name="FullCoverage" Type="bit" />
+          <Property Name="DUI" Type="bit" />
+          <Property Name="QuotedCost" Type="money" />
+        </EntityType>
+        <EntityContainer Name="QuoteDBModelStoreContainer">
+          <EntitySet Name="Costs" EntityType="Self.Costs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MakeCosts" EntityType="Self.MakeCosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModelCosts" EntityType="Self.ModelCosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quotes" EntityType="Self.Quotes" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuoteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="BaseCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Under25YO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Under18YO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Over100YO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OldCarYear" Type="Int32" />
+          <Property Name="OldCarCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NewCarYear" Type="Int32" />
+          <Property Name="NewCarCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PerSpeedingTicketCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FullCoveragePercent" Type="Int32" />
+          <Property Name="DUIPercent" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="MakeCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MakeCost1" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="ModelCost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModelCost1" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Quote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="CarYear" Type="Int32" />
+          <Property Name="CarMake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpeedingTickets" Type="Int32" />
+          <Property Name="FullCoverage" Type="Boolean" />
+          <Property Name="QuotedCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DUI" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="QuoteDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Costs" EntityType="Self.Cost" />
+          <EntitySet Name="MakeCosts" EntityType="Self.MakeCost" />
+          <EntitySet Name="ModelCosts" EntityType="Self.ModelCost" />
+          <EntitySet Name="Quotes" EntityType="Self.Quote" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuoteDBModelStoreContainer" CdmEntityContainer="QuoteDBEntities">
+          <EntitySetMapping Name="Costs">
+            <EntityTypeMapping TypeName="QuoteDBModel.Cost">
+              <MappingFragment StoreEntitySet="Costs">
+                <ScalarProperty Name="DUIPercent" ColumnName="DUIPercent" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BaseCost" ColumnName="BaseCost" />
+                <ScalarProperty Name="Under25YO" ColumnName="Under25YO" />
+                <ScalarProperty Name="Under18YO" ColumnName="Under18YO" />
+                <ScalarProperty Name="Over100YO" ColumnName="Over100YO" />
+                <ScalarProperty Name="OldCarYear" ColumnName="OldCarYear" />
+                <ScalarProperty Name="OldCarCost" ColumnName="OldCarCost" />
+                <ScalarProperty Name="NewCarYear" ColumnName="NewCarYear" />
+                <ScalarProperty Name="NewCarCost" ColumnName="NewCarCost" />
+                <ScalarProperty Name="PerSpeedingTicketCost" ColumnName="PerSpeedingTicketCost" />
+                <ScalarProperty Name="FullCoveragePercent" ColumnName="FullCoveragePercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MakeCosts">
+            <EntityTypeMapping TypeName="QuoteDBModel.MakeCost">
+              <MappingFragment StoreEntitySet="MakeCosts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="MakeCost1" ColumnName="MakeCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModelCosts">
+            <EntityTypeMapping TypeName="QuoteDBModel.ModelCost">
+              <MappingFragment StoreEntitySet="ModelCosts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ModelCost1" ColumnName="ModelCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quotes">
+            <EntityTypeMapping TypeName="QuoteDBModel.Quote">
+              <MappingFragment StoreEntitySet="Quotes">
+                <ScalarProperty Name="DUI" ColumnName="DUI" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+                <ScalarProperty Name="CarMake" ColumnName="CarMake" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="SpeedingTickets" ColumnName="SpeedingTickets" />
+                <ScalarProperty Name="FullCoverage" ColumnName="FullCoverage" />
+                <ScalarProperty Name="QuotedCost" ColumnName="QuotedCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
