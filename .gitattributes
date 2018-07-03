@@ -62,4 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-AcademyAutoInsurance/AcademyAutoInsurance/Scripts/* linguist-vendored
+AcademyAutoInsurance/Scripts/* linguist-vendored
